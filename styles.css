@@ -1,0 +1,18 @@
+h1{
+    /*Underline the h1 element */
+    text-decoration: underline;
+     /*monospace font-family*/
+    font-family: monospace;
+     /*color of h1 element */
+    color:floralwhite;
+     /*font-size of the h1 element */
+    font-size: 52px;
+    /*padding is space between border and text */
+    padding:10px;
+    /*background color of the h1 element */
+    background-color:deepskyblue;
+    /*opacity 0-1, 0 for transparent and 1 for opaque */
+    opacity: 0.87;
+    /*shadow effect */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
