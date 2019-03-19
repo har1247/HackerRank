@@ -1,0 +1,51 @@
+John works at a clothing store. He has a large pile of socks that he must pair by color for sale. 
+Given an array of integers representing the color of each sock, determine how many pairs of socks 
+with matching colors there are. For example, there are n=7 socks with colors {1,2,1,2,1,3,2}. There is one pair of color
+and one of color . There are three odd socks left, one of each color. The number of pairs is 2.
+
+
+
+public class Solution {
+
+    static boolean findDuplicateElement(int arr[], int num) {
+        boolean flag = false;
+        for (int j = 0; j < arr.length; j++) {
+
+            if (arr[j] == num) {
+                flag = true;
+            }
+        }  
+        return flag;
+    }
+
+    // Complete the sockMerchant function below.
+    static int sockMerchant(int n, int[] ar) {
+            int[] uniqsocks= new int[n];
+            int[] paircounts = new int[n];
+            int j =0; int p=0;
+            int pairs=0;
+            for(int i=0; i<n; i++) {
+                if(findDuplicateElement(uniqsocks,ar[i])== false) {
+                    uniqsocks[j] = ar[i];
+                    j++;
+                }
+            }
+         for(int k =0; k<uniqsocks.length; k++) {
+             int count = 0;
+             for(int m =0; m<ar.length; m++) {
+                    if(ar[m] == uniqsocks[k]) {
+                        count++;
+                    }
+                }
+                paircounts[p] = count;
+                p++;
+         }
+         System.out.println(Arrays.toString(paircounts));
+           for(int b = 0; b<paircounts.length; b++) {
+               int temp = paircounts[b]/2;
+               if(temp >=1){
+                   pairs+=temp;
+               }
+           }
+            return pairs;
+    }

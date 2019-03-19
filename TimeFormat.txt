@@ -1,0 +1,62 @@
+
+Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+
+Note: Midnight is 12:00:00AM on a 12-hour clock, and 00:00:00 on a 24-hour clock. 
+Noon is 12:00:00PM on a 12-hour clock, and 12:00:00 on a 24-hour clock.
+Sample input : 07:05:45PM
+Sample output : 19:05:45
+
+
+
+
+public class Solution {
+
+    /*
+     * Complete the timeConversion function below.
+     */
+    
+    static String timeConversion(String s) {
+
+        String ampm = s.substring(8, 9);
+        String mins = s.substring(3, 5);
+        String secs = s.substring(6, 8);
+        String milhours = "";
+        String miltime = "";
+        int hour = Integer.parseInt(s.substring(0, 2));
+
+        if (ampm.equals("P")) {
+            if (hour == 24) {
+                milhours = "00";
+            }
+            if (hour < 12) {
+                hour = hour + 12;
+                milhours = String.valueOf(hour);
+            }
+            if (hour == 12) {
+                milhours = String.valueOf(hour);
+            }
+
+            miltime = milhours + ":" + mins + ":" + secs;
+            return miltime;
+        }
+        if (ampm.equals("A")) {
+            if (hour == 12) {
+                milhours = "00";
+                miltime = milhours + ":" + mins + ":" + secs;
+
+            }
+            if (hour < 12) {
+                milhours = String.valueOf(hour);
+                milhours = "0" + milhours;
+                miltime = milhours + ":" + mins + ":" + secs;
+
+            }
+            if (hour > 12) {
+                hour = hour - 12;
+                milhours = String.valueOf(hour);
+                miltime = milhours + ":" + mins + ":" + secs;
+            }
+
+        }
+        return miltime;
+    }

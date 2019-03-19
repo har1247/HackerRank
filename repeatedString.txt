@@ -1,0 +1,18 @@
+#n = 10, means the string s = "aba" is repeated over the course of 10 letters, i.e. abaabaabaa. 
+    Now, we break this string further down. First part, the exactly divisible part, s1 = "abaabaaba" and 
+    the second part, the remainder part, s2 = "a". To represent the count of a in s1 and s2, 
+    we have, int(n/len(s)) or n//len(s) and s[:n%len(s)], multiplied by count of a in s, respectively.
+
+
+
+
+def repeatedString(s, n):
+    
+    intial = s.count("a")
+    s1 = int(n/len(s))
+    countA1 =  intial * s1
+    s2 = s[:n%len(s)]
+    countA2 = s2.count("a")
+    total = countA1 + countA2
+
+    return total
