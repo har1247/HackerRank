@@ -1,0 +1,12 @@
+
+#Birthday Problem
+d = day = sum of numbers
+m = month = pair of numbers
+
+
+def birthday(s, d, m):
+    count = 0
+    n = len(s)
+    for i in range(n-m+1):
+        count += int(sum(s[i:i+m]) == d)
+    return count
