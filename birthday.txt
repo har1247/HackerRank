@@ -1,4 +1,3 @@
-
 #Birthday Problem
 d = day = sum of numbers
 m = month = pair of numbers
